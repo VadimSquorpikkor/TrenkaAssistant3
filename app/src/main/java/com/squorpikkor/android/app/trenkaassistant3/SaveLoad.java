@@ -67,11 +67,25 @@ public class SaveLoad {
 
     /**Этот метод должен быть без параметров. Сейчас это сделано на скорую руку**/
     public void savePodhodList(ArrayList<Podhod> podhodArrayList, String prefName) {
-
+        ArrayList<String> list = new ArrayList<>();
+        for (Podhod podhod : podhodArrayList) {
+            list.add(String.valueOf(podhod.getWeight()));
+            list.add(String.valueOf(podhod.getCount()));
+            list.add(podhod.getComment());
+        }
+        saveStringArray(list, prefName);
     }
 
     public ArrayList<Podhod> loadPodhodList(String sharedPref) {
-        return new ArrayList<Podhod>();//ЭТО ПРОСТО ЗАТЫЧКА!!!
+        ArrayList<Podhod> list = new ArrayList<>();
+        ArrayList<String> stringList = loadStringArray(sharedPref);
+        for (int i = 0; i < stringList.size(); i++) {
+            double weight = Double.parseDouble(stringList.get(i));
+            int count = Integer.parseInt(stringList.get(i+1));
+            String comment = stringList.get(i+2);
+            list.add(new Podhod(weight, count, comment));
+        }
+        return list;
     }
 
     /***********************************************************/
