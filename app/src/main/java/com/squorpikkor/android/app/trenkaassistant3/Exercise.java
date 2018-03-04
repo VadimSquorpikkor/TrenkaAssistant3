@@ -18,14 +18,18 @@ import java.util.ArrayList;
 public class Exercise {
 
     //При создании класса Exercise можно выбрать, какой тип "Подхода" будет использоваться в классе --
-    // силовой(type 0) или бег(type 1) (абстрактный класс Podhod и его потомки)
+    // силовой[type 0] или бег[type 1] (абстрактный класс Podhod и его потомки)
     int type;
 
     String exerciseName;
     ArrayList<String> shPrefList;
     ArrayList<Work> workList = new ArrayList<>();
 
-    Work newWork;
+    double weight;
+    int count;
+
+
+    Work currentWork;//Может быть и новым, и выбранным старым -- это тот Ворк, который отображается под листом
     Work bestWork;
 
     void addWeight() {

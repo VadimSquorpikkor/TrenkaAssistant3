@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.squorpikkor.android.app.trenkaassistant3.HomeActivity">
+    tools:context="com.squorpikkor.android.app.trenkaassistant3._HomeActivity">
 
     <ListView
         android:id="@+id/trenkaListView"
@@ -24,6 +24,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="53dp"
-        android:text="ADD" />
+        android:text="ADD_NEW" />
 
 </RelativeLayout>
