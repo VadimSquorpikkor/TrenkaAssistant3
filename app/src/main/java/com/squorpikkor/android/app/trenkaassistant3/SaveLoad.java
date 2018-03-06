@@ -92,12 +92,19 @@ public class SaveLoad {
 
     public void saveStringArray(ArrayList<String> list, String prefName) {
         preferences = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
+
         saveStringArray(list, preferences);
     }
 
     public ArrayList<String> loadStringArray(String prefName) {
-        preferences = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
-        return loadStringArray(preferences);
+        try {
+            preferences = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
+            return loadStringArray(preferences);
+        } finally {
+            return new ArrayList<>();
+        }
+
+
     }
 
     void saveDoubleArray(ArrayList<Double> list, String prefName) {
@@ -136,8 +143,12 @@ public class SaveLoad {
     }
 
     int loadInteger(String prefName) {
-        preferences = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
-        return loadInteger(preferences);
+        try {
+            preferences = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
+            return loadInteger(preferences);
+        } finally {
+            return 0;
+        }
     }
 
     /**
